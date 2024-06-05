@@ -5,6 +5,7 @@ This repository contains the code of the OGCM, which is a subject of the paper "
 Content of the repository.
 
 !----------------------------------------------------------------------------------------------------------------
+
 PETSC
 
 The subfolder petsc-3.18.5 contains an external library for solving linear equation sets (in our case, shallow water equations). To build the library for user's platform, one needs to enter the directory petsc-3.18.5 anr execute ./configure . In the case of failure, the compilers and other keys should be inserted manually. For instance,
