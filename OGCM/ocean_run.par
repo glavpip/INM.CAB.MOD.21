@@ -1,0 +1,35 @@
+            1  : 0 - start from minimum conditions, 1 - start from the full checkpoint
+        150.0  : Model time step in seconds
+        365.0  : Duration of the run (in days)
+       210240  : Time step number (0 matches to 01 January 00:00:00)
+         2007  : Initial year (i4.4)
+       1440.0  : Periodicity for writing local  instantaneous data (in minutes). If >1440.0, then output is once per day. If <=0 then no local output is done
+       1440.0  : Periodicity for writing global time averaged data (in minutes). If >1440.0, then output is once per month. If <0 then only checkpoints are written
+          180  : Number of internal steps for ice dynamics (0 - do not use ice block at all)
+E              : Path to the checkpoints and results
+../../SS       : Path to the sea surface data on the oceanic grid
+sstNA1620.dat                   : Sea surface temperature
+sssNA1620.dat                   : Sea surface salinity
+rofNA1620.dat                   : River runoff liquid
+rofNA1620solid.dat              : River runoff solid (if present)
+tlbc.dat                        : Temperature at the open boundary
+slbc.dat                        : Salinity at the open boundary
+ulbc.dat                        : Zonal velocity at the open boundary
+vlbc.dat                        : Meridional velocity at the open boundary
+hlbc.dat                        : SSH at the open boundary
+/data90t/geosci/gusev/DATA/JRA55-do    : Path to the sea surface data on the oceanic grid
+taux0.dat                       : SS Zonal wind stress (prescribed)
+tauy0.dat                       : SS Meridional wind stress (prescribed)
+mnhf.dat                        : SS Heat balance (prescribed)
+mswr.dat                        : SS Solar radiation balance (prescribed)
+mpme.dat                        : SS fresh water balance (prescribed)
+t10.dat                         : Air temperature at some height
+q10.dat                         : Air humidity at some height
+u10.dat                         : Air zonal wind speed at some height
+v10.dat                         : Air meridional wind speed at some height
+slp.dat                         : Sea level pressure
+lwr.dat                         : Downwelling thermal radiation
+swr.dat                         : Downwelling solar radiation
+rain.dat                        : Liquid precipitation rate (rain)
+snow.dat                        : Liquid precipitation rate (snow, if present)
+NONE

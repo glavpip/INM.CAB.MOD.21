@@ -1,0 +1,14 @@
+ integer, parameter:: lrecl=1         !long of unique recl for Compaq, Intel fortran
+ !integer, parameter:: lrecl=4         !long of unique recl for PGI, gfortran, efc
+
+!#ifdef __INTEL_COMPILER
+!  integer, parameter:: lrecl=1
+!#else
+!  integer, parameter:: lrecl=4
+!#endif 
+
+  integer, parameter :: lmpirecl=4  !for mpi read/write
+
+  real, parameter:: undef=-1.0e+32  !missing data value
+
+  integer, parameter:: optimized_io = 1  !Optimized input/output, see pdrstd and pwdstd

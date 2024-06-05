@@ -1,0 +1,40 @@
+integer, parameter :: overwrite_data = 0
+
+integer, parameter:: uv_output_glob=1,     &
+                    ssh_output_glob=1,     &
+                     ts_output_glob=1,     &
+                   wind_output_glob=0,     &
+                     ss_output_glob=0,     &
+                    mld_output_glob=0,     &
+                    sls_output_glob=0
+
+integer, parameter:: ahice_output_glob=0,   &
+                     uvice_output_glob=0
+
+integer, parameter:: pt_output_glob=0,   &
+                    age_output_glob=0
+
+integer, parameter:: den_sgt_output_glob=0,   &
+                     den_sg0_output_glob=1,   &
+                     den_sgm_output_glob=0
+
+integer, parameter:: grid_shift_glob=1                     !0 - output velocity at model grid, 1 - interpolation to T-grid
+
+integer, parameter:: sig_output_glob=0,  &                 ! output 3d fields at s-levels: 0 - no, 1 - yes (valid for t-grid output only)
+                       z_output_glob=1                     ! output 3d fields at z-levels: 0 - no, 1 - yes (valid for t-grid output only)
+
+! Parameters of output at z-horizons
+!integer, parameter:: nlev_glob=33
+integer, parameter:: nlev_glob=20
+real(4) zlev_glob(nlev_glob)
+
+!data zlev_glob/  0.0,   10.0,   20.0,   30.0,   50.0,    &
+!                75.0,  100.0,  125.0,  150.0,  200.0,    &
+!               250.0,  300.0,  400.0,  500.0,  600.0,    &
+!               700.0,  800.0,  900.0, 1000.0, 1100.0,    &
+!              1200.0, 1300.0, 1400.0, 1500.0, 1750.0,    &
+!              2000.0, 2500.0, 3000.0, 3500.0, 4000.0,    &
+!              4500.0, 5000.0, 5500.0 /
+
+data zlev_glob/0.0,    5.0,   10.0,   20.0,   30.0,   40.0,   50.0,   75.0,  100.0,  150.0,     &
+             200.0,  300.0,  400.0,  500.0,  750.0, 1000.0, 1250.0, 1500.0, 1750.0, 2000.0 /

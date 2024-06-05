@@ -1,0 +1,4 @@
+integer, parameter:: npiece_max=4*nx
+integer, parameter:: ny_mer=361
+
+real(4), parameter:: y0_mer=-78.0, dy_mer=0.5

@@ -1,0 +1,2 @@
+integer, parameter :: nzmax = 55000000,     &   !size of data storage for precondition
+                    precond = 1                 !precond = 0 no preconditioner

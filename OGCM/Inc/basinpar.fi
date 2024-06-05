@@ -1,0 +1,58 @@
+!Parameters of the ocean model 
+
+real(4), parameter:: salref =   35.0     !reference salinity (35.0 for the Global Ocean)
+real(4), parameter:: RefDen = 1025.0     !reference density[kg/m**3] (1024.0 for the Global Ocean)
+real(4), parameter:: hmp2   = 1850.0     !Half of basin mean depth (2000.0 for Global Ocean)
+
+integer, parameter:: nx=2148,  &     !number of total points in x-direction in base arrays
+                     ny=1764,  &     !number of total points in y-direction in base arrays
+                     nz=33,    &     !number of s-levels in vertical direction for 3d arrays
+                     mmm=3,    &     !begin of significant area in x-direction
+                     nnn=3,    &     !begin of significant area in y-direction
+                   mm=nx-2,    &     !end of significant area in x-direction
+                   nn=ny-2,    &     !end of significant area in y-direction
+          nx_glob=mm-mmm+1,    &     !Size of significant area in x-direction
+          ny_glob=nn-nnn+1,    &     !Size of significant area in y-direction
+           periodicity_x=0,    &     !Periodicity on x-direction (0 - non-periodic, 1 - periodic)
+           periodicity_y=0           !Periodicity on y-direction (0 - non-periodic, 1 - periodic)
+ 
+ real(8), parameter:: rlon = -97.96875d0,       &     !first calcutable t-point (m=mmm) on latitude  (in degrees)
+                      rlat =  -9.975d0,         &     !first calcutable t-point (n=nnn) on longitude (in degrees)
+                      dxst = 0.0625d0,          &     !longitude step (in degrees) in case of regular grid
+                      dyst = 0.05d0                   !latitude  step (in degrees) in case of regular grid
+
+ integer, parameter:: xgr_type=0,   &
+                      ygr_type=0          !grid types: 0 - regular, 1 - levels
+
+ real(8) x_levels(nx), y_levels(ny)
+ !if grid is irregular you MUST set levels!!!!!
+ ! data x_levels/.../
+ ! data y_levels/.../
+
+ ! parameters of basin                  ! =0 - Carthesian coordinates 
+                                        !  in degrees, with metric coefficient rx=R, ry=R (R - Earth radius)
+ integer, parameter:: curve_grid = 1    ! =1 - undistorted spherical grid (poles are placed at the sphere axis, but not only Earth rotation axis)
+                                        !  in degrees, with metric coefficients rx=R*cos(lat) and ry=R (R - Earth radius)
+                                        ! =2 - distorted spherical grid (poles are placed beyond the sphere axis) 
+                                        !  in degrees, with complicated metric coefficients
+  
+!Parameters of rotation (Euler angles in case of undistorted sphere)
+real(8),parameter:: rotation_on_lon = 0.0d0,    &     !geographic coordinates of the point  
+                    rotation_on_lat = 0.0d0           !that has coordinates (0,0) on rotated grid
+
+!Parameters of curvature(in case of curvilinear cordinate system)
+real(8), parameter:: x_pole= 90.0d0,   &  !lon of new north pole in geographical system
+                     y_pole= 60.0d0,   &  !lat of new north pole in geographical system
+                     p_pole= 90.0d0,   &  !lon of new south pole in geographical system
+                     q_pole=-90.0d0       !lat of new south pole in geographical system
+
+integer, parameter:: nonlinear_free_surface=1,     &
+                                 vol_change=1,     &
+                     variable_volume_budget=nonlinear_free_surface*vol_change
+
+integer, parameter:: mgrad=1        !Number of ice thickness gradations
+!integer, parameter:: mgrad=8
+
+real(4) hmax(mgrad)      !top values for ice gradations in meters
+data hmax/900.0/
+!data hmax/0.1,0.3,0.7,1.2,2.0,4.0,6.0,900.0/
